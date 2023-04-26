@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  ----default-spacing: 25px;
+  ----card-titles-font-size: 18px;
+  ----primary-color: white;
+  ----secondary-color: hsl(236, 100%, 87%);
+  ----cards-max-width: 768px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: hsl(226, 43%, 10%);
+  color: var(----primary-color);
+  margin: 0;
+}
+
+.header-card {
+  position: relative;
+  overflow: hidden;
+  max-width: var(----cards-max-width);
+  min-height: 40px;
+  width: 90%;
+  background-color: hsl(246, 80%, 60%);
+  margin-inline: auto;
+  margin-top: var(----default-spacing);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.header-card-person {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 10px;
+  padding: var(----default-spacing);
+  grid-template-areas:
+    "header-image header-report"
+    "header-image header-name";
+}
+
+.header-card-person-img {
+  grid-area: header-image;
+  height: 75px;
+  border: 4px solid white;
+  border-radius: 100%;
+}
+
+.header-card-person-report {
+  grid-area: header-report;
+  margin: 0;
+  align-self: end;
+  font-weight: 400;
+  color: var(----secondary-color);
+}
+
+.header-card-person-name {
+  grid-area: header-name;
+  margin: 0;
+  align-self: center;
+  font-weight: 400;
+}
+
+.content-card {
+  max-width: var(----cards-max-width);
+  width: 90%;
+  background-color: hsl(235, 46%, 20%);
+  margin-inline: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 30px;
+}
+
+.content-card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-card-buttons-button {
+  background: none;
+  border: none;
+  color: var(----secondary-color);
+  font-size: var(----card-titles-font-size);
+}
+
+.content-card-buttons-button:hover {
+  cursor: pointer;
+  color: var(----primary-color);
+}
+
+.content-card-tracking-time {
+  display: grid;
+  grid-template-columns: min-content auto;
+  row-gap: var(----default-spacing);
+  grid-template-areas:
+    "header dots"
+    "current-hours last-time-hours";
+}
+
+.content-card-tracking-time-header {
+  margin: 0;
+  font-size: var(----card-titles-font-size);
+}
+
+.content-card-tracking-time-ellipsis {
+  text-align: end;
+  align-self: center;
+}
+
+.content-card-tracking-time-current {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.content-card-tracking-time-previous {
+  margin: 0;
+  text-align: end;
+  /* Does not work if text overflows to next line 
+   look into differences between justify-self: end; and text-align: end; */
+  align-self: center;
+  color: var(----secondary-color);
+}
+
+.bg-header-card-work {
+  background-color: hsl(15, 100%, 70%);
+}
+
+.bg-header-card-play {
+  background-color: hsl(195, 74%, 62%);
+}
+
+.bg-header-card-study {
+  background-color: hsl(348, 100%, 68%);
+}
+
+.bg-header-card-exercise {
+  background-color: hsl(145, 58%, 55%);
+}
+
+.bg-header-card-social {
+  background-color: hsl(264, 64%, 52%);
+}
+
+.bg-header-card-self-care {
+  background-color: hsl(43, 84%, 65%);
+}
+
+.header-card-svg {
+  position: absolute;
+  height: 50px;
+  right: 20px;
+  top: -5px;
+}
