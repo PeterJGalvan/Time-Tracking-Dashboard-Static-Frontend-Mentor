@@ -58,10 +58,11 @@ body {
 }
 
 .header-card-person-name {
+  font-weight: 300;
   grid-area: header-name;
+  font-size: 27.5px;
   margin: 0;
   align-self: center;
-  font-weight: 400;
 }
 
 .content-card {
@@ -80,6 +81,8 @@ body {
 }
 
 .content-card-buttons-button {
+  width: min-content;
+  padding: 0;
   background: none;
   border: none;
   color: var(----secondary-color);
@@ -93,30 +96,35 @@ body {
 
 .content-card-tracking-time {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: repeat(2, 50%);
   row-gap: var(----default-spacing);
   grid-template-areas:
     "header dots"
-    "current-hours last-time-hours";
+    "current-time prev-time";
 }
 
 .content-card-tracking-time-header {
+  grid-area: header;
+  font-weight: 500;
   margin: 0;
   font-size: var(----card-titles-font-size);
 }
 
 .content-card-tracking-time-ellipsis {
+  grid-area: dots;
   text-align: end;
   align-self: center;
 }
 
 .content-card-tracking-time-current {
+  grid-area: current-time;
   margin: 0;
-  font-size: 32px;
-  font-weight: 500;
+  font-size: 27.5px;
+  font-weight: 300;
 }
 
 .content-card-tracking-time-previous {
+  grid-area: prev-time;
   margin: 0;
   text-align: end;
   /* Does not work if text overflows to next line 
@@ -154,4 +162,91 @@ body {
   height: 50px;
   right: 20px;
   top: -5px;
+}
+
+@media (min-width: 1024px) {
+  body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content-card-tracking-time-current {
+    font-size: 64px;
+  }
+
+  .header-card-person-name {
+    font-size: 48px;
+  }
+
+  .dashboard {
+    max-width: 1440px;
+    width: 90%;
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "profile work play study"
+      "profile exercise social self-care";
+  }
+
+  .profile-section {
+    grid-area: profile;
+  }
+
+  .profile-card {
+    height: 65%;
+  }
+
+  .profile-card-content {
+    height: 35%;
+  }
+
+  .header-card,
+  .content-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .header-card-person {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header-image"
+      "header-report"
+      "header-name";
+  }
+
+  .header-card-person-img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .header-card-person-report {
+    margin-top: var(----default-spacing);
+  }
+
+  .header-card-person-name {
+    align-self: start;
+  }
+
+  .content-card-buttons {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .content-card-tracking-time {
+    grid-template-columns: 75% 25%;
+    grid-template-areas:
+      "header dots"
+      "current-time current-time"
+      "prev-time prev-time";
+    row-gap: 20px;
+  }
+
+  .content-card-tracking-time-previous {
+    text-align: left;
+  }
 }
