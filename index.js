@@ -1,16 +1,3 @@
-const workHoursCurrentID = "workCurrent";
-const workHoursPrevID = "workPrev";
-const playHoursCurrentID = "playCurrent";
-const playHoursPrevID = "playPrev";
-const studyHoursCurrentID = "studyCurrent";
-const studyHoursPrevID = "studyPrev";
-const exerciseCurrentID = "exerciseCurrent";
-const exercisePrevID = "exercisePrev";
-const socialCurrentID = "socialCurrent";
-const socialPrevID = "socialPrev";
-const selfCareCurrentID = "selfCareCurrent";
-const selfCarePrevID = "selfCarePrev";
-
 function getHours(timeFrame) {
   fetch("./data.json")
     .then((response) => response.json())
@@ -18,28 +5,29 @@ function getHours(timeFrame) {
       let index = 0;
 
       while (index < data.length) {
-        currentTimeValue = data[index].timeframes[timeFrame].current + "hrs";
-        prevTimeValue =
+        let title = data[index].title;
+        let currentTime = data[index].timeframes[timeFrame].current + "hrs";
+        let prevTime =
           "Previous - " + data[index].timeframes[timeFrame].previous + "hrs";
 
-        if (data[index].title === "Work") {
-          setTextValue(workHoursCurrentID, currentTimeValue);
-          setTextValue(workHoursPrevID, prevTimeValue);
-        } else if (data[index].title === "Play") {
-          setTextValue(playHoursCurrentID, currentTimeValue);
-          setTextValue(playHoursPrevID, prevTimeValue);
-        } else if (data[index].title === "Study") {
-          setTextValue(studyHoursCurrentID, currentTimeValue);
-          setTextValue(studyHoursPrevID, prevTimeValue);
-        } else if (data[index].title === "Exercise") {
-          setTextValue(exerciseCurrentID, currentTimeValue);
-          setTextValue(exercisePrevID, prevTimeValue);
-        } else if (data[index].title === "Social") {
-          setTextValue(socialCurrentID, currentTimeValue);
-          setTextValue(socialPrevID, prevTimeValue);
+        if (title === "Work") {
+          setTextValue("workCurrent", currentTime);
+          setTextValue("workPrev", prevTime);
+        } else if (title === "Play") {
+          setTextValue("playCurrent", currentTime);
+          setTextValue("playPrev", prevTime);
+        } else if (title === "Study") {
+          setTextValue("studyCurrent", currentTime);
+          setTextValue("studyPrev", prevTime);
+        } else if (title === "Exercise") {
+          setTextValue("exerciseCurrent", currentTime);
+          setTextValue("exercisePrev", prevTime);
+        } else if (title === "Social") {
+          setTextValue("socialCurrent", currentTime);
+          setTextValue("socialPrev", prevTime);
         } else {
-          setTextValue(selfCareCurrentID, currentTimeValue);
-          setTextValue(selfCarePrevID, prevTimeValue);
+          setTextValue("selfCareCurrent", currentTime);
+          setTextValue("selfCarePrev", prevTime);
         }
 
         index++;
@@ -48,6 +36,6 @@ function getHours(timeFrame) {
     .catch((error) => console.error(error));
 }
 
-function setTextValue(id, variable) {
-  document.getElementById(id).innerHTML = variable;
+function setTextValue(id, value) {
+  document.getElementById(id).innerHTML = value;
 }
