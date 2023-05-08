@@ -12,9 +12,11 @@
 
     <link rel="stylesheet" type="text/css" href="./index.css" />
 
+    <script src="./index.js"></script>
+
     <title>Frontend Mentor | Time tracking dashboard</title>
   </head>
-  <body>
+  <body onload="getHours('weekly')">
     <main class="dashboard">
       <section class="profile-section">
         <div class="header-card profile-card">
@@ -31,9 +33,24 @@
 
         <div class="content-card profile-card-content">
           <div class="content-card-buttons">
-            <button class="content-card-buttons-button">Daily</button>
-            <button class="content-card-buttons-button">Weekly</button>
-            <button class="content-card-buttons-button">Monthly</button>
+            <button
+              class="content-card-buttons-button"
+              onclick="getHours('daily')"
+            >
+              Daily
+            </button>
+            <button
+              class="content-card-buttons-button"
+              onclick="getHours('weekly')"
+            >
+              Weekly
+            </button>
+            <button
+              class="content-card-buttons-button"
+              onclick="getHours('monthly')"
+            >
+              Monthly
+            </button>
           </div>
         </div>
       </section>
@@ -55,9 +72,9 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">32hrs</p>
+            <p class="content-card-tracking-time-current" id="workCurrent"></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p class="content-card-tracking-time-previous" id="workPrev"></p>
           </div>
         </div>
       </section>
@@ -79,9 +96,9 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">10hrs</p>
+            <p class="content-card-tracking-time-current" id="playCurrent"></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p class="content-card-tracking-time-previous" id="playPrev"></p>
           </div>
         </div>
       </section>
@@ -103,9 +120,9 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">10hrs</p>
+            <p class="content-card-tracking-time-current" id="studyCurrent"></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p class="content-card-tracking-time-previous" id="studyPrev"></p>
           </div>
         </div>
       </section>
@@ -127,9 +144,15 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">10hrs</p>
+            <p
+              class="content-card-tracking-time-current"
+              id="exerciseCurrent"
+            ></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p
+              class="content-card-tracking-time-previous"
+              id="exercisePrev"
+            ></p>
           </div>
         </div>
       </section>
@@ -151,9 +174,12 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">10hrs</p>
+            <p
+              class="content-card-tracking-time-current"
+              id="socialCurrent"
+            ></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p class="content-card-tracking-time-previous" id="socialPrev"></p>
           </div>
         </div>
       </section>
@@ -175,9 +201,15 @@
               <img src="./images/icon-ellipsis.svg" alt="ellipsis"
             /></a>
 
-            <p class="content-card-tracking-time-current">10hrs</p>
+            <p
+              class="content-card-tracking-time-current"
+              id="selfCareCurrent"
+            ></p>
 
-            <p class="content-card-tracking-time-previous">Previous - 36hrs</p>
+            <p
+              class="content-card-tracking-time-previous"
+              id="selfCarePrev"
+            ></p>
           </div>
         </div>
       </section>

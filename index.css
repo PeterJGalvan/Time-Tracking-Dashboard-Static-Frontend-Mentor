@@ -173,11 +173,8 @@ body {
     justify-content: center;
   }
 
+  .header-card-person-name,
   .content-card-tracking-time-current {
-    font-size: 64px;
-  }
-
-  .header-card-person-name {
     font-size: 48px;
   }
 
