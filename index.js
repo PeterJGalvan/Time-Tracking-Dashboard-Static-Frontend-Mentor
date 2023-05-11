@@ -1,4 +1,6 @@
 function getHours(timeFrame) {
+  updatingSelectedMonthChoice(timeFrame);
+
   fetch("./data.json")
     .then((response) => response.json())
     .then((data) => {
@@ -34,6 +36,22 @@ function getHours(timeFrame) {
       }
     })
     .catch((error) => console.error(error));
+}
+
+function updatingSelectedMonthChoice(timeFrame) {
+  document
+    .getElementById("daily-button")
+    .classList.remove("content-card-buttons-button-selected");
+  document
+    .getElementById("weekly-button")
+    .classList.remove("content-card-buttons-button-selected");
+  document
+    .getElementById("monthly-button")
+    .classList.remove("content-card-buttons-button-selected");
+
+  document
+    .getElementById(`${timeFrame}-button`)
+    .classList.add("content-card-buttons-button-selected");
 }
 
 function setTextValue(id, value) {

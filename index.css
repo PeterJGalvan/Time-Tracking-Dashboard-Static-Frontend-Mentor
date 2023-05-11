@@ -80,7 +80,8 @@ body {
   justify-content: space-between;
 }
 
-.content-card-buttons-button {
+.content-card-buttons-button,
+.content-card-buttons-button-selected {
   width: min-content;
   padding: 0;
   background: none;
@@ -91,6 +92,12 @@ body {
 
 .content-card-buttons-button:hover {
   cursor: pointer;
+  color: var(----primary-color);
+}
+
+/* Put this below content-card-buttons-button so it has higher specificity*/
+.content-card-buttons-button-selected {
+  pointer-events: none;
   color: var(----primary-color);
 }
 
